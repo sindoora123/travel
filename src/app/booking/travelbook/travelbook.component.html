@@ -1,0 +1,23 @@
+  <h2>Travel booking</h2>
+ <label for="date">select date</label> <input type="date">
+  <div>
+
+   
+    <label>From:</label>
+    <select [(ngModel)]="selectedSource">
+      <option *ngFor="let destination of destinations" [value]="destination">{{ destination }}</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label>To:</label>
+    <select [(ngModel)]="selectedDestination">
+      <option *ngFor="let destination of destinations" [value]="destination">{{ destination }}</option>
+    </select>
+  </div>
+  <br>
+  <button (click)="calculateTravelExpense()">Check</button>
+  <div *ngIf="travelExpense !== undefined">
+    <p>Travel Expense: {{ travelExpense }}</p>
+  </div>
+  <button (click)="back()">Back</button>

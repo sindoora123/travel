@@ -1,0 +1,42 @@
+<div class="container">
+       <h2 style="text-align: center;" class="title" >Create User</h2>
+   <form [formGroup]="userForm" ng-controller="travelcontrol" (ngSubmit)="Onsubmit()" >    
+      <div>
+      <label >First name {{userForm.get('fname')?.value}}</label>
+      <input type="text" class="form-control"  formControlName="fname" required>
+      <p *ngIf="!userForm.get('fname')?.errors">Please enter the first name</p>
+      </div> 
+    <div>
+    <div> 
+      <label >Last name</label>
+      <input type="text"class="form-control" name="lname"formControlName="lname" required>
+    </div>
+    <div>
+      <label >phone</label>
+      <input type="number"ngModel class="form-control"  name="phone"formControlName="phone" required>
+    </div>
+    <div>
+      <label >Email</label>
+      <input type="email" class="form-control"  name="email"formControlName="email">
+    </div>
+    <div>
+       <label >DOB</label>
+       <input type="date"  class="form-control" name="dob" formControlName="date" name="date">
+    </div>
+    <div>
+        <label for="password"> Create password</label>
+        <input type="password" class="form-control" name="password" formControlName="password" required>
+    </div>
+    <div>
+        <label for="password">Confirm Password</label>
+        <input type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword">
+    </div>
+    <!-- imp -->
+    <div *ngIf="userForm.get('confirmPassword')?.value!=userForm.get('password')?.value">
+      <p>Passwords do not match.</p>
+    </div>
+        <button type="submit"  >SUBMIT</button>
+        <button (click)="back()">Back</button>
+    </div> 
+   </form>
+    </div> 
